@@ -1,64 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <!--Bootstrap CSS CDN-->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <body>
-        <header class="container-fluid bg-dark text-center p-2">
-            <h1 class="text-white">Weather Dashboard</h1>
-        </header>
-    
-        <div class="container-fluid row">
-            <div class="col-md-3  col-lg-3 search-block bg-light border">
-                <h4 class="my-4">Search for a City:</h4>
-    
-                <form class="form-inline my-lg-0">
-                    <input class="form-control m-3  w-60 " type="search" placeholder="City Name" aria-label="Search">
-                    <button id="searchbtn" class="btn btn-outline-primary " type="submit"><i class="fas fa-search"></i></button>
-                </form>
-    
-                <div class="container popular-cities my-3">                
-                    <button id="city1" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city2" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city3" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city4" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city5" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city6" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city7" class="city  btn btn-outline-secondary  w-100 text-left "></button>
-                    <button id="city8" class="city  btn btn-outline-secondary  w-100 text-left "></button>
+    <!--header-->
+    <header class="container-fluid text-center p-2 bg-dark">
+        <h1 class="text-white">Weather Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 bg-light">
+                <h4 class="pt-1">Search for a City:</h4>
+                <!-- search box -->
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="city-input" aria-label="City Search"
+                        aria-describedby="search-button" placeholder="Enter a city" />
+                    <!-- search button -->
+                    <button class="btn bg-primary text-light" id="search">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </div>
-    
-                <div class="d-flex justify-content-center">
-                    <button id="clear" class="btn btn-outline-primary m-2">Clear</button>
-                </div>
-    
+                <!-- searched cities dumped here -->
+                <ul class="list-group"></ul>
+                <!-- clear button -->
+                <button class="btn btn-primary" id="clear">Clear</button>
+
             </div>
+            <!-- current weather -->
+            <div class="col-sm-8">
+                <div class="row m-3 border">
+                    <div class="col-sm-12" id="current-weather">
+                        <h3 class="city-name my-2 bolder" id="current-city"></h3>
+                        <p>Temperature:<span class="current" id="temperature"></span></p>
+                        <p>Humidity:<span class="current" id="humidity"></span></p>
+                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                        <p>
+                            UV Index:<span class="current bg-danger rounded p-2 text-white" id="uv-index"></span>
+                        </p>
+                    </div>
+                </div>
+                <!-- 5 day forecast -->
+                <div class="col-sm-12" id="future-weather">
+                    <h3>5-Day Forecast:</h3>
+                    <div class="row text-light">
+                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                            <p id="date0"></p>
+                            <p id="img0"></p>
+                            <p>Temp:<span id="temp0"></span></p>
+                            <p>Humidity:<span id="hum0"></span></p>
+                        </div>
+
+                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                            <p id="date1"></p>
+                            <p id="img1"></p>
+                            <p>Temp:<span id="temp1"></span></p>
+                            <p>Humidity:<span id="hum1"></span></p>
+                        </div>
+
+                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                            <p id="date2"></p>
+                            <p id="img2"></p>
+                            <p>Temp:<span id="temp2"></span></p>
+                            <p>Humidity:<span id="hum2"></span></p>
+                        </div>
+
+                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                            <p id="date3"></p>
+                            <p id="img3"></p>
+                            <p>Temp:<span id="temp3"></span></p>
+                            <p>Humidity:<span id="hum3"></span></p>
+                        </div>
+
+                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                            <p id="date4"></p>
+                            <p id="img4"></p>
+                            <p>Temp:<span id="temp4"></span></p>
+                            <p>Humidity:<span id="hum4"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- js file -->
+    <script src="script.js"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
 
 </html>
