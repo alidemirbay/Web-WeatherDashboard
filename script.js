@@ -10,6 +10,11 @@ var currentUvIndex = $("#uv-index");
 var searchedCity = [];
 var APIKey = "fcca5f4c619ad41f11f10c94c440ccd7";
 
+//event handlers
+$("#search").on("click", displayWeather);
+$(document).on("click", getHistorySearch);
+$(window).on("load", getLastSearch);
+$("#clear").on("click", clearHistory);
 
 // function for displaying current weather
 function currentWeather(cityName) {
@@ -96,4 +101,61 @@ function UVIndex(lon, lat) {
         console.log(response)
         currentUvIndex.html(response.value);
     });
+}
+
+//takes the data from input and pass to currentWeather function
+function displayWeather(event) {
+    event.preventDefault();
+    if (cityInput.val().trim() !== "") {
+        cityName = cityInput.val().trim();
+        cityInput.val("");
+        currentWeather(cityName);
+    }
+}
+
+// searches the city to see if it exists in history
+function isInHistory(parameter) {
+    for (var i = 0; i < searchedCity.length; i++) {
+        if (parameter.toUpperCase() === searchedCity[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// add the searched city to the search history
+function addToHistory(parameter) {
+    var listEl = $("<li>" + parameter.toUpperCase() + "</li>");
+    listEl.attr("class", "list-group-item");
+    // $(listEl).attr("data-value", parameter.toUpperCase());
+    $(".list-group").prepend(listEl);
+}
+
+// display  searched city when when it is clicked
+function getHistorySearch(event) {
+    var liEl = event.target;
+    if (event.target.matches("li")) {
+        cityName = liEl.textContent;
+        currentWeather(cityName);
+    }
+}
+
+// render function
+function getLastSearch() {
+    $("ul").empty();
+    if (searchedCity !== null) {
+        searchedCity = JSON.parse(localStorage.getItem("cityname"));
+        for (i = 0; i < searchedCity.length; i++) {
+            addToHistory(searchedCity[i]);
+        }
+        cityName = searchedCity[i - 1];
+        currentWeather(cityName);
+    }
+}
+
+//clear search history 
+function clearHistory(event) {
+    event.preventDefault();
+    localStorage.removeItem("cityname");
+    document.location.reload();
 }
