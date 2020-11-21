@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 bg-light">
-                <h4 class="pt-1">Search for a City:</h4>
+                <h4 class="p-1">Search for a City:</h4>
                 <!-- search box -->
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="city-input" aria-label="City Search"
@@ -36,7 +36,7 @@
                 <!-- searched cities dumped here -->
                 <ul class="list-group"></ul>
                 <!-- clear button -->
-                <button class="btn btn-primary" id="clear">Clear</button>
+                <button class="btn btn-primary my-2" id="clear">Clear</button>
 
             </div>
             <!-- current weather -->
@@ -44,47 +44,47 @@
                 <div class="row m-3 border">
                     <div class="col-sm-12" id="current-weather">
                         <h3 class="city-name my-2 bolder" id="current-city"></h3>
-                        <p>Temperature:<span class="current" id="temperature"></span></p>
-                        <p>Humidity:<span class="current" id="humidity"></span></p>
-                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                        <p>Temperature:<span id="temperature"></span></p>
+                        <p>Humidity:<span id="humidity"></span></p>
+                        <p>Wind Speed:<span id="wind-speed"></span></p>
                         <p>
-                            UV Index:<span class="current bg-danger rounded p-2 text-white" id="uv-index"></span>
+                            UV Index:<span class=" rounded p-2 text-dark" id="uv-index"></span>
                         </p>
                     </div>
                 </div>
                 <!-- 5 day forecast -->
-                <div class="col-sm-12" id="future-weather">
+                <div class="col-sm-12 m-3" id="future-weather">
                     <h3>5-Day Forecast:</h3>
-                    <div class="row text-light">
-                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                    <div class="row text-light forecast">
+                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
                             <p id="date0"></p>
                             <p id="img0"></p>
                             <p>Temp:<span id="temp0"></span></p>
                             <p>Humidity:<span id="hum0"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
                             <p id="date1"></p>
                             <p id="img1"></p>
                             <p>Temp:<span id="temp1"></span></p>
                             <p>Humidity:<span id="hum1"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
                             <p id="date2"></p>
                             <p id="img2"></p>
                             <p>Temp:<span id="temp2"></span></p>
                             <p>Humidity:<span id="hum2"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
                             <p id="date3"></p>
                             <p id="img3"></p>
                             <p>Temp:<span id="temp3"></span></p>
                             <p>Humidity:<span id="hum3"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary forecast text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
                             <p id="date4"></p>
                             <p id="img4"></p>
                             <p>Temp:<span id="temp4"></span></p>
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-
+    <!--jQuery JS-->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
