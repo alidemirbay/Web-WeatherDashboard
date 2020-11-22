@@ -16,7 +16,7 @@ $(document).on("click", getHistorySearch);
 $(window).on("load", getLastSearch);
 $("#clear").on("click", clearHistory);
 
-// function for displaying current weather
+//function for displaying current weather
 function currentWeather(cityName) {
     // URL to make a query
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + APIKey;
@@ -47,24 +47,26 @@ function currentWeather(cityName) {
         fiveDay(cityName);
 
         if (response.cod == 200) {
-            searchedCity = JSON.parse(localStorage.getItem("cityname"));
+            searchedCity = JSON.parse(localStorage.getItem("city"));
             console.log(searchedCity);
             if (searchedCity == null) {
                 searchedCity = [];
                 searchedCity.push(cityName.toUpperCase());
-                localStorage.setItem("cityname", JSON.stringify(searchedCity));
+                localStorage.setItem("city", JSON.stringify(searchedCity));
                 addToHistory(cityName);
             }
             if (!isInHistory(cityName)) {
                 searchedCity.push(cityName.toUpperCase());
-                localStorage.setItem("cityname", JSON.stringify(searchedCity));
+                localStorage.setItem("city", JSON.stringify(searchedCity));
                 addToHistory(cityName);
             }
+            // if (searchedCity.length = 3) {
+            //     searchedCity.shift()
+            // }
 
         }
     });
 }
-
 // display  5 day forecast 
 function fiveDay(cityName) {
     var query5dayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
@@ -100,15 +102,26 @@ function UVIndex(lon, lat) {
     }).then(function (response) {
         console.log(response)
         currentUvIndex.html(response.value);
+        var uvValue = response.value
+        if (uvValue < 3) {
+            currentUvIndex.css("background-color", "green")
+        } else if (uvValue < 6) {
+            currentUvIndex.css("background-color", "yellow")
+        } else if (uvValue < 8) {
+            currentUvIndex.css("background-color", "orange")
+        } else if (uvValue < 11) {
+            currentUvIndex.css("background-color", "red")
+        } else {
+            currentUvIndex.css("background-color", "violet")
+        }
     });
 }
-
 //takes the data from input and pass to currentWeather function
 function displayWeather(event) {
     event.preventDefault();
     if (cityInput.val().trim() !== "") {
         cityName = cityInput.val().trim();
-        cityInput.val("");
+        cityInput.val("");// clears input area after search
         currentWeather(cityName);
     }
 }
@@ -129,6 +142,7 @@ function addToHistory(parameter) {
     listEl.attr("class", "list-group-item");
     // $(listEl).attr("data-value", parameter.toUpperCase());
     $(".list-group").prepend(listEl);
+
 }
 
 // display  searched city when when it is clicked
@@ -140,11 +154,10 @@ function getHistorySearch(event) {
     }
 }
 
-// render function
-function getLastSearch() {
-    $("ul").empty();
+// shows last search on load
+function getLastSearch() {    
     if (searchedCity !== null) {
-        searchedCity = JSON.parse(localStorage.getItem("cityname"));
+        searchedCity = JSON.parse(localStorage.getItem("city"));
         for (i = 0; i < searchedCity.length; i++) {
             addToHistory(searchedCity[i]);
         }
@@ -156,6 +169,7 @@ function getLastSearch() {
 //clear search history 
 function clearHistory(event) {
     event.preventDefault();
-    localStorage.removeItem("cityname");
+    localStorage.removeItem("city");
     document.location.reload();
 }
+
