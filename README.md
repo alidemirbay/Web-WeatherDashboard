@@ -31,7 +31,7 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 ## Screenshot of the app
-![screenshot](./1.png)
+![screenshot](images/1.png)
 
 ## Link to the website:
 https://alidemirbay.github.io/Web-WeatherDashboard/
