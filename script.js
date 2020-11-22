@@ -13,7 +13,7 @@ var APIKey = "fcca5f4c619ad41f11f10c94c440ccd7";
 //event handlers
 $("#search").on("click", displayWeather);
 $(document).on("click", getHistorySearch);
-$(window).on("load", getLastSearch);
+$(window).on("load", loadLastSearch);
 $("#clear").on("click", clearHistory);
 
 //function for displaying current weather
@@ -60,9 +60,7 @@ function currentWeather(cityName) {
                 localStorage.setItem("city", JSON.stringify(searchedCity));
                 addToHistory(cityName);
             }
-            // if (searchedCity.length = 3) {
-            //     searchedCity.shift()
-            // }
+
 
         }
     });
@@ -155,7 +153,7 @@ function getHistorySearch(event) {
 }
 
 // shows last search on load
-function getLastSearch() {    
+function loadLastSearch() {
     if (searchedCity !== null) {
         searchedCity = JSON.parse(localStorage.getItem("city"));
         for (i = 0; i < searchedCity.length; i++) {

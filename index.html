@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather Dashboard</title>
-    <!--Bootstrap CSS CDN-->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!--Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- css file -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -25,7 +25,7 @@
             <div class="col-sm-4 bg-light">
                 <h4 class="p-1">Search for a City:</h4>
                 <!-- search box -->
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <input type="text" class="form-control" id="city-input" aria-label="City Search"
                         aria-describedby="search-button" placeholder="Enter a city" />
                     <!-- search button -->
@@ -47,44 +47,42 @@
                         <p>Temperature:<span id="temperature"></span></p>
                         <p>Humidity:<span id="humidity"></span></p>
                         <p>Wind Speed:<span id="wind-speed"></span></p>
-                        <p>
-                            UV Index:<span class=" rounded p-2 text-dark" id="uv-index"></span>
-                        </p>
+                        <p> UV Index:<span class=" rounded p-2 " id="uv-index"></span></p>
                     </div>
                 </div>
                 <!-- 5 day forecast -->
                 <div class="col-sm-12 m-3" id="future-weather">
                     <h3>5-Day Forecast:</h3>
-                    <div class="row text-light forecast">
-                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
+                    <div class="row text-light text-white forecast">
+                        <div class="col-sm-2 bg-primary p-2 m-2 rounded">
                             <p id="date0"></p>
                             <p id="img0"></p>
                             <p>Temp:<span id="temp0"></span></p>
                             <p>Humidity:<span id="hum0"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary p-2 m-2 rounded">
                             <p id="date1"></p>
                             <p id="img1"></p>
                             <p>Temp:<span id="temp1"></span></p>
                             <p>Humidity:<span id="hum1"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary p-2 m-2 rounded">
                             <p id="date2"></p>
                             <p id="img2"></p>
                             <p>Temp:<span id="temp2"></span></p>
                             <p>Humidity:<span id="hum2"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary p-2 m-2 rounded">
                             <p id="date3"></p>
                             <p id="img3"></p>
                             <p>Temp:<span id="temp3"></span></p>
                             <p>Humidity:<span id="hum3"></span></p>
                         </div>
 
-                        <div class="col-sm-2 bg-primary  text-white p-2 m-2 rounded">
+                        <div class="col-sm-2 bg-primary p-2 m-2 rounded">
                             <p id="date4"></p>
                             <p id="img4"></p>
                             <p>Temp:<span id="temp4"></span></p>
@@ -96,13 +94,10 @@
         </div>
     </div>
 
-    <!--jQuery JS-->
+    <!--jquery js-->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous"></script>
-
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <!-- js file -->
     <script src="script.js"></script>
 </body>
