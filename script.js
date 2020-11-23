@@ -136,11 +136,11 @@ function isInHistory(parameter) {
 
 // add the searched city to the search history
 function addToHistory(parameter) {
-    var listEl = $("<li>" + parameter.toUpperCase() + "</li>");
-    listEl.attr("class", "list-group-item");
-    // $(listEl).attr("data-value", parameter.toUpperCase());
-    $(".list-group").prepend(listEl);
-
+    if (searchedCity.length < 9) {
+        var listEl = $("<li>" + parameter.toUpperCase() + "</li>");
+        listEl.attr("class", "list-group-item");
+        $(".list-group").prepend(listEl);
+    }
 }
 
 // display  searched city when when it is clicked
