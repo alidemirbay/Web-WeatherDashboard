@@ -1,9 +1,8 @@
 # Web-WeatherDashboard
 
-
 # Job Description:
- Building a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities.
 
+Building a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities.
 
 ## User Story
 
@@ -30,8 +29,11 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
+
 ## Screenshot of the app
+
 ![screenshot](images/1.png)
 
 ## Link to the website:
-https://alidemirbay.github.io/Web-WeatherDashboard/
+
+https://alidemirbay.github.io/weather-dashboard/
